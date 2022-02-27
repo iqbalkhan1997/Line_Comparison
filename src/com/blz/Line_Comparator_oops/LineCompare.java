@@ -20,16 +20,18 @@ public class LineCompare {
         Double lenOfLine=Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
         return lenOfLine;
     }
-    //method to check equality of two lines
-    public void equal(Double length1,Double length2){
+    //method to compare two lengths of the lines
+    public void compare(Double length1,Double length2){
         line1 = length1;
         line2 = length2;
-        boolean equality = line1.equals(line2);
+        int equality = line1.compareTo(line2);
         System.out.println(equality);
-        if(equality == false){
-            System.out.println("Two lengths of the lines are not equal");
+        if(equality < 0){
+            System.out.println("First Line length is less than Second line");
+        } else if(equality > 0) {
+            System.out.println("First Line length is Greater than Second line");
         } else {
-            System.out.println("Two lengths of the lines are equal");
+            System.out.println("Both first and second line lengths are equal");
         }
     }
     //main method to behave/initialize methods and objects
@@ -52,6 +54,6 @@ public class LineCompare {
         System.out.println("Second line length is " + second);
         //initializing length of two lines to equals method
         LineCompare check = new LineCompare();
-        check.equal(first,second);
+        check.compare(first,second);
     }
 }
